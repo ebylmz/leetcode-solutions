@@ -5,8 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # Time-complexity: O(n)
-        # Space-complexity: O(1)
+        # T(n) = O(n), S(n) = O(1)
 
         l, r = 0, len(numbers) - 1
         while l < r:
