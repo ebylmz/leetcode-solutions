@@ -1,4 +1,4 @@
-# 🏆 LeetCode Solutions
+# ♞ LeetCode Solutions
 
 A collection of my favorite and must-solve LeetCode problems before coding interviews.
 
