@@ -29,7 +29,7 @@ class Solution(object):
                 path.append(node)
                 for neighbour in edges[node]:
                     if neighbour not in discovered:
-                        discovered.add(node)
+                        discovered.add(neighbour)
                         queue.append(neighbour)
             return path
 
