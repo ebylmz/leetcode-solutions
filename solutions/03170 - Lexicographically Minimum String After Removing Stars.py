@@ -12,7 +12,7 @@ class Solution:
 
         for i in range(N):
             if s[i] == "*":
-                v, index = heapq.heappop(h)
+                heapq.heappop(h)
             else:
                 # Add negative of index value, in order to get the leftmost smallest char
                 heapq.heappush(h, (s[i], -i))
@@ -23,4 +23,3 @@ class Solution:
             remained[-index] = True
         
         return ''.join([s[i] for i in range(N) if remained[i]])
-            
