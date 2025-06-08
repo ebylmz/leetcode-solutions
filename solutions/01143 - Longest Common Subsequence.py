@@ -1,31 +1,27 @@
-class Solution(object):
-    def longestCommonSubsequence(self, text1, text2):
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         """
-        :type text1: str
-        :type text2: str
-        :rtype: int
-        """
-
-        """
-             a,c,e
-          [0,0,0,0]
-        a [0,1,1,1]
-        c [0,1,2,2]
+        Time Complexity: O(n*m)
+        Space Complexity: O(n*m) 
         """
 
-        # T(n,m) = O(n*m), S(n,m) = O(n*m) 
+        m, n = len(text1), len(text2)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
 
-        rows, cols = len(text1) + 1, len(text2) + 1
-        dp = [[0 for j in range(cols)] for i in range(rows)]
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                if text1[i] == text2[j]:
+                    dp[i][j] = dp[i+1][j+1] + 1
+                else:
+                    dp[i][j] = max(dp[i+1][j], dp[i][j+1])
+        return dp[0][0]
 
-        for i in range(1, rows):
-            for j in range(1, cols):
-                if text2[j-1] != text1[i-1]:
-                    dp[i][j] = max(dp[i][j-1], dp[i-1][j])
-                else:   
-                    dp[i][j] = dp[i-1][j-1] + 1
-                    if dp[i][j] == i:
-                        # We reached the maximum subsequence length
-                        for k in range(j+1, cols):
-                            dp[i][k] = dp[i][j]
-        return dp[rows-1][cols-1]
+    """
+        a   c   e   \
+    a   3   2   1   0
+    b   2   2   1   0
+    c   2   2   1   0
+    d   1   1   1   0
+    e   1   1   1   0
+    \   0   0   0   0
+    """
