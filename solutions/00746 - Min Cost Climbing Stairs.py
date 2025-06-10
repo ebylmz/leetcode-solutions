@@ -1,11 +1,11 @@
-class Solution(object):
-    def minCostClimbingStairs(self, cost):
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
         """
-        :type cost: List[int]
-        :rtype: int
+            Time Complexity: O(n)
+            Space Complexity: O(1)
         """
-        # T(n) = O(n), S(n) = O(1)
-
-        for step in range(2, len(cost)):
-            cost[step] += min(cost[step - 1], cost[step - 2])
-        return min(cost[-1], cost[-2])
+        
+        a, b = cost[0], cost[1]
+        for i in range(2, len(cost)):
+            a, b = b, cost[i] + min(a, b)
+        return min(a, b)
