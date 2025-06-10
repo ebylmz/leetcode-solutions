@@ -1,6 +1,7 @@
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         """
+            IDEA: Stair i can be reached from one or two previous stairs. Use DP.
             Time Complexity: O(n)
             Space Complexity: O(1)
         """
