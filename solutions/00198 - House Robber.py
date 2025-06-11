@@ -1,18 +1,19 @@
-class Solution(object):
-    def rob(self, nums):
+class Solution:
+    def rob(self, nums: List[int]) -> int:
         """
-        :type nums: List[int]
-        :rtype: int
+        IDEA: Rob the current house only if doing so yields more money than skipping it and robbing the next house.
+        
+        Time Complexity = O(n) 
+        Space Complexity = O(1) 
         """
-        
-        # T(n) = O(n), S(n) = O(1)
-        
-        if len(nums) == 1:
+        n = len(nums)
+        if n == 1:
             return nums[0]
-        
-        nums[1] = max(nums[0], nums[1])
 
-        for i in range(2, len(nums)):
-            nums[i] = max(nums[i - 1], nums[i - 2] + nums[i])
+        rob_next, rob_next_plus_one = nums[-1], 0
+        for i in range(n - 2, -1, -1):
+            current = max(nums[i] + rob_next_plus_one, rob_next)
+            rob_next_plus_one = rob_next
+            rob_next = current
         
-        return nums[-1]
+        return rob_next
