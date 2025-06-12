@@ -1,16 +1,16 @@
 class Solution:
     def findLongestChain(self, pairs: List[List[int]]) -> int:
         """
-        Time Complexity: O(n^2)
-        Space Complexity: O(n)
+        Time Complexity: O(n*logn)
+        Space Complexity: O(1)
         """
-        pairs.sort(key=lambda x: x[0])
+        pairs.sort(key=lambda x: x[1])
         n = len(pairs)
-        dp = [1] * n
 
+        length, end = 1, pairs[0][1]
         for i in range(1, n):
-            for j in range(i):
-                if pairs[j][1] < pairs[i][0]:
-                    dp[i] = max(dp[i], dp[j] + 1)
+            if pairs[i][0] > end:
+                length += 1
+                end = pairs[i][1]
         
-        return max(dp)
+        return length
