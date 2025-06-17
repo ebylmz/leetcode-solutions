@@ -1,6 +1,7 @@
 class Solution:
     def longestSubsequence(self, arr: List[int], difference: int) -> int:
         """
+        IDEA: Did I already build a subsequence ending at num - difference
         Time Complexity: O(n)
         Space Complexity: O(n)
         """
