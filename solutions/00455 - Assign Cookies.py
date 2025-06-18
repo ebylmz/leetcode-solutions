@@ -1,7 +1,7 @@
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
         """
-        Time Complexity: O(n*logn)
+        Time Complexity: O(n*logn + m*logn)
         Time Complexity: O(1)
         """
         g.sort()
