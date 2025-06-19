@@ -1,13 +1,14 @@
 class Solution:
     def partitionArray(self, nums: List[int], k: int) -> int:
         """
-        Time Complexity: O(n log n)
+        Time Complexity: O(n*log n)
         Space Complexity: O(1)
         """
+        INF = 10**20
         nums.sort()
-        partitions = 1
-        start = nums[0]
-        
+
+        partitions = 0
+        start = -INF
         for num in nums:
             if num - start > k:
                 start = num
