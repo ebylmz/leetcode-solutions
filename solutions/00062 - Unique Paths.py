@@ -1,9 +1,8 @@
 class Solution(object):
-    def uniquePaths(self, m, n):
+    def uniquePaths(self, m: int, n: int) -> int:
         """
-        :type m: int
-        :type n: int
-        :rtype: int
+        Time Complexity: O(m*n)
+        Space Complexity: O(m*n)
         """
         
         """
@@ -12,10 +11,8 @@ class Solution(object):
         [1, 2, 3, 4, 5, 6, 7]
         [1, 3, 6,10,15,21,28]
         """
-        
-        # T(n, m) = O(n*m), S(n, m) = O(n*m)
 
-        grid = [[1 for i in range(n)]] * m
+        grid = [[1 for _ in range(n)]] * m
         for i in range(1, m):
             for j in range(1, n):
                 grid[i][j] = grid[i-1][j] + grid[i][j-1]
