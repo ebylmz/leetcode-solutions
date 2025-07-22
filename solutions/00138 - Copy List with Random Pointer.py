@@ -10,7 +10,7 @@ class Node:
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         """
-        Time Complexity: O(n) - Traverses the list twice
+        Time Complexity: O(n) - Traversing the list twice
         Space Complexity: O(n) - Keeping the mappings between old and new nodes
         """
 
